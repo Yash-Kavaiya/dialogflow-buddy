@@ -8,12 +8,13 @@ interface FeatureCardProps {
   title: string;
   description: string;
   link: string;
+  className?: string;  // Add optional className prop
 }
 
-const FeatureCard: FC<FeatureCardProps> = ({ icon, title, description, link }) => {
+const FeatureCard: FC<FeatureCardProps> = ({ icon, title, description, link, className }) => {
   return (
     <Link href={link} className="block h-full">
-      <div className="relative flex flex-col h-full bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden">
+      <div className={`relative flex flex-col h-full bg-gradient-to-br from-gray-800 to-gray-700 rounded-xl overflow-hidden ${className}`}>
         {/* Hover Effects Container */}
         <div className="absolute inset-0">
           <div className="absolute inset-0 bg-gradient-to-r from-blue-600/10 to-purple-600/10 opacity-0 group-hover:opacity-100 transition-all duration-300" />
@@ -55,3 +56,4 @@ const FeatureCard: FC<FeatureCardProps> = ({ icon, title, description, link }) =
 };
 
 export default FeatureCard;
+export type { FeatureCardProps };  // Export the interface
