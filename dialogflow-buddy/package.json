@@ -14,6 +14,8 @@
     "@lottiefiles/react-lottie-player": "^3.5.4",
     "@vercel/analytics": "^1.1.1",
     "axios": "^1.6.2",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
     "lucide-react": "^0.469.0",
     "next": "14.0.4",
     "next-auth": "^4.24.11",
@@ -22,7 +24,8 @@
     "react-dom": "^18.2.0",
     "react-hot-toast": "^2.4.1",
     "react-icons": "^4.12.0",
-    "recharts": "^2.15.0"
+    "recharts": "^2.15.0",
+    "tailwind-merge": "^2.6.0"
   },
   "devDependencies": {
     "@tailwindcss/forms": "^0.5.9",

@@ -3,7 +3,7 @@
 import { useRouter } from 'next/navigation';
 import { FaGithub, FaLinkedin, FaTwitter, FaEnvelope, FaTools, FaHeart } from 'react-icons/fa';
 
-export default function NotFound() {
+const PricingPage = () => {
   const router = useRouter();
 
   const socialLinks = [
@@ -88,3 +88,5 @@ export default function NotFound() {
     </div>
   );
 }
+
+export default PricingPage;
