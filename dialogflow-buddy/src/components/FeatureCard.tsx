@@ -6,7 +6,8 @@ interface FeatureCardProps {
   icon: ReactElement;
   title: string;
   description: string;
-  className?: string;  // Add optional className prop
+  className?: string;
+  link?: string;  // Add the link prop as optional
 }
 
 const FeatureCard: FC<FeatureCardProps> = ({ icon, title, description, className }) => {

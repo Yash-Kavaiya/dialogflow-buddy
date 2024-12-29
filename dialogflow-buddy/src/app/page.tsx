@@ -103,7 +103,6 @@ export default function Home() {
                     icon={feature.icon}
                     title={feature.title}
                     description={feature.description}
-                    link={feature.link}
                     className="bg-gradient-to-br from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-gray-600"
                   />
                 </div>
