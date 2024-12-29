@@ -28,63 +28,54 @@ export default function Terms() {
                   Welcome to Dialogflow Developer Buddy. By accessing or using our service, you agree to be bound by these terms and conditions. Please read them carefully before using our platform.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">2. Service Description</h2>
                 <p className="text-gray-600 mb-6">
                   Dialogflow Developer Buddy is a platform that provides AI-powered assistance for building and managing Dialogflow chatbots. Our services include intent generation, entity detection, route creation, and webhook generation tools.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">3. User Obligations</h2>
                 <p className="text-gray-600 mb-6">
                   Users must ensure all information provided is accurate and up-to-date. You are responsible for maintaining the confidentiality of your account credentials and for all activities conducted through your account.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">4. Intellectual Property</h2>
                 <p className="text-gray-600 mb-6">
                   All content, features, and functionality of the Dialogflow Developer Buddy service, including but not limited to text, graphics, logos, and software, are the exclusive property of our company and are protected by international copyright laws.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">5. Data Privacy</h2>
                 <p className="text-gray-600 mb-6">
                   We are committed to protecting your privacy. Our collection and use of personal information is governed by our Privacy Policy. By using our service, you consent to our data practices as described in the Privacy Policy.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">6. Service Modifications</h2>
                 <p className="text-gray-600 mb-6">
                   We reserve the right to modify, suspend, or discontinue any part of our service at any time. We will provide notice of significant changes when possible, but are not obligated to do so.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">7. Limitation of Liability</h2>
                 <p className="text-gray-600 mb-6">
                   To the maximum extent permitted by law, we shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use or inability to use the service.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">8. Termination</h2>
                 <p className="text-gray-600 mb-6">
                   We may terminate or suspend your access to the service immediately, without prior notice or liability, for any reason, including breach of these Terms. Upon termination, your right to use the service will cease immediately.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">9. Contact Information</h2>
                 <p className="text-gray-600 mb-6">
                   If you have any questions about these Terms, please contact us at yash.kavaiya3@gmail.com.
                 </p>
               </section>
-
               <section>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">10. Changes to Terms</h2>
                 <p className="text-gray-600 mb-6">
