@@ -303,6 +303,7 @@ export default function DebugPage() {
           </Dialog.Panel>
         </div>
       </Dialog>
+      
     </div>
   );
 }

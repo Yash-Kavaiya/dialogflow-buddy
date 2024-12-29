@@ -27,6 +27,7 @@ export default function WebhooksPage() {
         {/* Bottom Gradient Line */}
         <div className="absolute bottom-0 left-0 right-0 h-px bg-gradient-to-r from-transparent via-blue-500/20 to-transparent" />
       </div>
+      <Footer />
     </div>
   );
 }

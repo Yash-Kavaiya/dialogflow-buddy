@@ -43,6 +43,7 @@ export default function IntentsPage() {
           <IntentForm />
         </div>
       </div>
+      
     </div>
   );
 }
