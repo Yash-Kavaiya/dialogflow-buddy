@@ -25,6 +25,7 @@ export default function DebugPage() {
   const [imagePreview, setImagePreview] = useState<string | null>(null);
   const [isHelpOpen, setIsHelpOpen] = useState(false);
 
+  // Keep all existing handlers...
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
     if (file) {
@@ -92,41 +93,58 @@ export default function DebugPage() {
 
     return (
       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-6">
-        <div className="transform hover:scale-105 transition-transform duration-200 text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
-          <FaClock className="mx-auto h-6 w-6 text-indigo-600 mb-3" />
-          <div className="text-sm font-medium text-gray-600">Processing Time</div>
-          <div className="text-2xl font-bold text-gray-900">{(result.timeMs / 1000).toFixed(2)}s</div>
-          <div className="text-xs text-gray-500 mt-1">{result.timeMs}ms</div>
-        </div>
-        <div className="transform hover:scale-105 transition-transform duration-200 text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
-          <FaCoins className="mx-auto h-6 w-6 text-indigo-600 mb-3" />
-          <div className="text-sm font-medium text-gray-600">Tokens Used</div>
-          <div className="text-2xl font-bold text-gray-900">{result.tokens.total}</div>
-          <div className="text-xs text-gray-500 mt-1">
-            Prompt: {result.tokens.prompt} | Response: {result.tokens.completion}
+        {[
+          {
+            icon: <FaClock className="h-6 w-6 text-blue-400" />,
+            title: "Processing Time",
+            value: `${(result.timeMs / 1000).toFixed(2)}s`,
+            subtitle: `${result.timeMs}ms`
+          },
+          {
+            icon: <FaCoins className="h-6 w-6 text-blue-400" />,
+            title: "Tokens Used",
+            value: result.tokens.total,
+            subtitle: `Prompt: ${result.tokens.prompt} | Response: ${result.tokens.completion}`
+          },
+          {
+            icon: <FaRobot className="h-6 w-6 text-blue-400" />,
+            title: "AI Model",
+            value: result.model,
+            subtitle: "Gemini Pro"
+          }
+        ].map((item, index) => (
+          <div
+            key={index}
+            className="group relative bg-gradient-to-br from-gray-800 to-gray-900 p-6 rounded-xl border border-gray-700/50
+                     transform hover:scale-105 transition-all duration-300"
+          >
+            <div className="absolute inset-0 bg-gradient-to-r from-blue-500/10 to-purple-500/10 rounded-xl opacity-0 group-hover:opacity-100 transition-all duration-300" />
+            <div className="relative">
+              <div className="mx-auto flex justify-center mb-3">{item.icon}</div>
+              <div className="text-sm font-medium text-gray-400">{item.title}</div>
+              <div className="text-2xl font-bold text-gray-100">{item.value}</div>
+              <div className="text-xs text-gray-500 mt-1">{item.subtitle}</div>
+            </div>
           </div>
-        </div>
-        <div className="transform hover:scale-105 transition-transform duration-200 text-center p-6 bg-white rounded-xl shadow-md border border-gray-100">
-          <FaRobot className="mx-auto h-6 w-6 text-indigo-600 mb-3" />
-          <div className="text-sm font-medium text-gray-600">AI Model</div>
-          <div className="text-lg font-bold text-gray-900">{result.model}</div>
-          <div className="text-xs text-gray-500 mt-1">Gemini Pro</div>
-        </div>
+        ))}
       </div>
     );
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 to-gray-100 py-12 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 py-12 px-4 sm:px-6 lg:px-8">
+      <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-5"></div>
+      <div className="relative max-w-5xl mx-auto">
         <div className="flex items-center justify-between mb-8">
-          <h1 className="text-4xl font-bold text-gray-900">
-            Dialogflow Debugger
-            <span className="text-indigo-600">with Gemini AI</span>
+          <h1 className="text-4xl font-bold">
+            <span className="text-gray-100">Dialogflow Debugger</span>{' '}
+            <span className="bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent">
+              with Gemini AI
+            </span>
           </h1>
           <button
             onClick={() => setIsHelpOpen(true)}
-            className="text-gray-500 hover:text-indigo-600 transition-colors"
+            className="text-gray-400 hover:text-blue-400 transition-colors"
             title="Help"
           >
             <FaInfoCircle className="h-6 w-6" />
@@ -135,25 +153,31 @@ export default function DebugPage() {
         
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           <div className="space-y-6">
-            <form onSubmit={handleSubmit} className="space-y-6 bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+            <form onSubmit={handleSubmit} className="space-y-6 bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700/50">
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-200">
                   Describe your Dialogflow issue
                 </label>
-                <textarea
-                  value={text}
-                  onChange={(e) => setText(e.target.value)}
-                  className="w-full rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 transition-colors"
-                  rows={6}
-                  placeholder="Describe your problem or paste your Dialogflow code here..."
-                />
+                <div className="relative group">
+                  <div className="absolute -inset-0.5 bg-gradient-to-r from-blue-500 to-purple-500 rounded-lg blur opacity-20 group-hover:opacity-30 transition duration-300" />
+                  <textarea
+                    value={text}
+                    onChange={(e) => setText(e.target.value)}
+                    className="relative w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-gray-100 
+                             placeholder-gray-500 focus:ring-2 focus:ring-blue-500 focus:border-transparent 
+                             transition-all duration-300"
+                    rows={6}
+                    placeholder="Describe your problem or paste your Dialogflow code here..."
+                  />
+                </div>
               </div>
 
               <div className="space-y-2">
-                <label className="block text-sm font-medium text-gray-700">
+                <label className="block text-sm font-medium text-gray-200">
                   Upload Screenshot (optional)
                 </label>
-                <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-300 border-dashed rounded-lg hover:border-indigo-500 transition-colors">
+                <div className="mt-2 flex justify-center px-6 pt-5 pb-6 border-2 border-gray-700 border-dashed rounded-lg 
+                              hover:border-blue-500/50 transition-all duration-300 bg-gray-800/50">
                   <div className="space-y-2 text-center">
                     {imagePreview ? (
                       <div className="relative inline-block">
@@ -168,16 +192,18 @@ export default function DebugPage() {
                             setFile(null);
                             setImagePreview(null);
                           }}
-                          className="absolute -top-2 -right-2 bg-red-500 text-white p-2 rounded-full hover:bg-red-600 transition-colors"
+                          className="absolute -top-2 -right-2 bg-red-500/80 text-white p-2 rounded-full
+                                   hover:bg-red-600 transition-colors"
                         >
                           <FaTrash className="h-4 w-4" />
                         </button>
                       </div>
                     ) : (
                       <>
-                        <FaUpload className="mx-auto h-12 w-12 text-gray-400" />
-                        <div className="flex text-sm text-gray-600">
-                          <label className="relative cursor-pointer rounded-md font-medium text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-500 focus-within:ring-offset-2">
+                        <FaUpload className="mx-auto h-12 w-12 text-gray-500" />
+                        <div className="flex text-sm text-gray-400">
+                          <label className="relative cursor-pointer rounded-md font-medium text-blue-400 
+                                          hover:text-blue-300 transition-colors">
                             <span>Upload a screenshot</span>
                             <input
                               type="file"
@@ -199,7 +225,13 @@ export default function DebugPage() {
               <button
                 type="submit"
                 disabled={loading || (!text && !file)}
-                className="w-full flex justify-center items-center py-3 px-4 border border-transparent rounded-lg shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500 disabled:bg-gray-400 disabled:cursor-not-allowed transition-all duration-200 transform hover:scale-105"
+                className="w-full flex justify-center items-center px-6 py-3 rounded-lg
+                         bg-gradient-to-r from-blue-500 to-purple-600 
+                         text-white font-medium transition-all duration-300
+                         hover:from-blue-600 hover:to-purple-700
+                         disabled:opacity-50 disabled:cursor-not-allowed
+                         transform hover:scale-[1.02] active:scale-[0.98]
+                         shadow-lg shadow-blue-500/25 hover:shadow-blue-500/40"
               >
                 {loading ? (
                   <>
@@ -215,13 +247,15 @@ export default function DebugPage() {
 
           <div className="space-y-6">
             {result && (
-              <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-100">
+              <div className="bg-gradient-to-br from-gray-800 to-gray-900 p-8 rounded-xl border border-gray-700/50">
                 {renderAnalytics()}
 
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">Analysis & Solution</h2>
+                <h2 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
+                  Analysis & Solution
+                </h2>
                 <div className="prose max-w-none">
-                  <div className="bg-gray-50 p-6 rounded-lg overflow-auto">
-                    <div className="whitespace-pre-wrap text-gray-800">
+                  <div className="bg-gray-800/50 p-6 rounded-lg overflow-auto border border-gray-700/50">
+                    <div className="whitespace-pre-wrap text-gray-300">
                       {result.solution}
                     </div>
                   </div>
@@ -238,13 +272,13 @@ export default function DebugPage() {
         onClose={() => setIsHelpOpen(false)}
         className="relative z-50"
       >
-        <div className="fixed inset-0 bg-black/30" aria-hidden="true" />
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm" aria-hidden="true" />
         <div className="fixed inset-0 flex items-center justify-center p-4">
-          <Dialog.Panel className="mx-auto max-w-lg rounded-xl bg-white p-6 shadow-xl">
-            <Dialog.Title className="text-xl font-semibold text-gray-900 mb-4">
+          <Dialog.Panel className="mx-auto max-w-lg rounded-xl bg-gradient-to-br from-gray-800 to-gray-900 p-6 shadow-xl border border-gray-700/50">
+            <Dialog.Title className="text-xl font-semibold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-4">
               How to Use the Debugger
             </Dialog.Title>
-            <div className="space-y-4 text-gray-600">
+            <div className="space-y-4 text-gray-300">
               <p>The Dialogflow Debugger helps you identify and fix issues in your Dialogflow implementation:</p>
               <ol className="list-decimal list-inside space-y-2">
                 <li>Describe your issue or paste your problematic code in the text area</li>
@@ -252,12 +286,16 @@ export default function DebugPage() {
                 <li>Click "Analyze Issue" to get AI-powered debugging suggestions</li>
                 <li>Review the analysis metrics and detailed solution provided</li>
               </ol>
-              <p className="text-sm text-gray-500 mt-4">
+              <p className="text-sm text-gray-400 mt-4">
                 Powered by Google's Gemini AI for accurate and context-aware debugging assistance.
               </p>
             </div>
             <button
-              className="mt-6 w-full py-2 px-4 bg-indigo-600 text-white rounded-lg hover:bg-indigo-700 transition-colors"
+              className="mt-6 w-full px-6 py-3 rounded-lg
+                       bg-gradient-to-r from-blue-500 to-purple-600 
+                       text-white font-medium transition-all duration-300
+                       hover:from-blue-600 hover:to-purple-700
+                       transform hover:scale-[1.02] active:scale-[0.98]"
               onClick={() => setIsHelpOpen(false)}
             >
               Got it, thanks!
