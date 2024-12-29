@@ -1,8 +1,10 @@
+"use client";
 import { FC } from 'react';
 import { FaRobot, FaRoute, FaCode, FaCogs, FaProjectDiagram, FaBug, FaChartLine, FaVial, FaInfoCircle } from 'react-icons/fa';
 import Hero from '@/components/Hero';
 import FeatureCard from '@/components/FeatureCard';
 import Footer from '@/components/Footer';
+import { useRouter } from 'next/navigation';
 
 interface Feature {
   icon: JSX.Element;
@@ -12,6 +14,7 @@ interface Feature {
 }
 
 export default function Home() {
+  const router = useRouter();
   const features: Feature[] = [
     {
       icon: <FaRobot className="w-6 h-6" />,
@@ -91,14 +94,19 @@ export default function Home() {
             {/* Features Grid */}
             <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
               {features.map((feature, index) => (
-              <FeatureCard
-                key={index}
-                icon={feature.icon}
-                title={feature.title}
-                description={feature.description}
-                link={feature.link}
-                className="bg-gradient-to-br from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-gray-600"
-              />
+                <div
+                  key={index}
+                  onClick={() => router.push(feature.link)}
+                  className="cursor-pointer transform transition-all duration-300 hover:scale-105"
+                >
+                  <FeatureCard
+                    icon={feature.icon}
+                    title={feature.title}
+                    description={feature.description}
+                    link={feature.link}
+                    className="bg-gradient-to-br from-gray-800 to-gray-700 hover:from-gray-700 hover:to-gray-600 text-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 border border-gray-700 hover:border-gray-600"
+                  />
+                </div>
               ))}
             </div>
           </div>

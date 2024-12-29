@@ -95,7 +95,6 @@ export default function TestSuite() {
           </div>
         </div>
       </div>
-      <Footer />
     </div>
   );
 }

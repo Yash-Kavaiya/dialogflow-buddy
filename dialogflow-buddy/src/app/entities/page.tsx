@@ -60,7 +60,7 @@ export default function EntitiesPage() {
                 </span>
               </h1>
               <p className="mt-3 max-w-md mx-auto text-base text-gray-400 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                Automatically identify entities using OpenAI's GPT model.
+                Automatically identify entities using Gemini model.
               </p>
             </div>
 

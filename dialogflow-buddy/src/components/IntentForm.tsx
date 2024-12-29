@@ -174,7 +174,7 @@ const IntentForm = () => {
               <span className="ml-2">
                 You've reached the free limit of 10 intents. Get the Pro plan for 25+ intents and more features.
               </span>
-              <a href="/pricing" className="ml-2 text-blue-400 hover:text-blue-300 underline underline-offset-2">
+              <a href="/contact" className="ml-2 text-blue-400 hover:text-blue-300 underline underline-offset-2">
                 Learn More →
               </a>
             </p>
