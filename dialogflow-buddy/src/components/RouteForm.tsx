@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import axios from 'axios';
-import { Route, Share2 } from 'lucide-react';
+import { Route, Share2Icon } from 'lucide-react';
 
 const RouteForm: React.FC = () => {
   const [intents, setIntents] = useState('');
@@ -84,7 +84,7 @@ const RouteForm: React.FC = () => {
           {routes && (
             <div className="mt-8">
               <h3 className="text-xl font-semibold text-white mb-4 flex items-center">
-                <Share2 className="w-6 h-6 mr-2 text-cyan-400" />
+                <Share2Icon className="w-6 h-6 mr-2 text-cyan-400" />
                 Generated Routes
               </h3>
               <pre className="p-4 bg-gray-800/50 rounded-xl overflow-auto whitespace-pre-wrap 
