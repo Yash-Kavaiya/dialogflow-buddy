@@ -8,8 +8,8 @@ import { AuthProvider } from './providers';
 const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
-  title: 'Dialogflow Developer Buddy',
-  description: 'AI-powered assistant for Dialogflow development',
+  title: 'Dialogflow Buddy',
+  description: 'Your AI-powered assistant for Dialogflow development',
 };
 
 export default function RootLayout({
@@ -22,7 +22,9 @@ export default function RootLayout({
       <body className={inter.className}>
         <AuthProvider>
           <Navbar />
-          {children}
+          <div className="min-h-screen bg-gray-900">
+            {children}
+          </div>
           <Analytics />
         </AuthProvider>
       </body>
