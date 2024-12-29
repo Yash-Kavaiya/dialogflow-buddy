@@ -1,6 +1,6 @@
 "use client";
 import { FC } from 'react';
-import { FaRobot, FaRoute, FaCode, FaCogs, FaProjectDiagram, FaBug, FaChartLine, FaVial, FaInfoCircle, FaHeart } from 'react-icons/fa';
+import { FaRobot, FaRoute, FaCode, FaCogs, FaProjectDiagram, FaBug, FaChartLine, FaVial, FaInfoCircle } from 'react-icons/fa';
 import Hero from '@/components/Hero';
 import FeatureCard from '@/components/FeatureCard';
 import Footer from '@/components/Footer';
@@ -113,32 +113,6 @@ export default function Home() {
 
           {/* Decorative Background Elements */}
           <div className="absolute inset-0 bg-[url('/grid.svg')] bg-center opacity-10">
-          </div>
-        </section>
-
-        {/* Support Our Work Section */}
-        <section className="relative py-16 px-4 sm:px-6 lg:px-8">
-          <div className="max-w-3xl mx-auto">
-            <div className="relative group">
-              <div className="absolute -inset-1 bg-gradient-to-r from-purple-600 to-blue-600 rounded-lg blur opacity-25 group-hover:opacity-40 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
-              <div className="relative px-7 py-6 bg-gray-800 ring-1 ring-gray-700/50 rounded-lg leading-none flex flex-col items-center">
-                <FaHeart className="w-12 h-12 text-red-500 mb-4 animate-pulse" />
-                <h3 className="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400 mb-3">
-                  Support Our Work
-                </h3>
-                <p className="text-gray-300 text-center mb-6">
-                  Help us continue developing and improving Dialogflow Buddy with your support!
-                </p>
-                <button
-                  onClick={() => router.push('/sponsor')}
-                  className="px-8 py-3 bg-gradient-to-r from-blue-500 to-purple-500 text-white rounded-lg font-medium
-                           transform transition-all duration-300 hover:scale-105 hover:from-blue-600 hover:to-purple-600
-                           shadow-lg hover:shadow-purple-500/25"
-                >
-                  Become a Sponsor ✨
-                </button>
-              </div>
-            </div>
           </div>
         </section>
       </main>
