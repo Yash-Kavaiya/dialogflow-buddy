@@ -1,0 +1,165 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+/* Navbar styles */
+.navbar {
+  background-color: #1a1a1a;
+  padding: 15px 0;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.brand-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: white;
+}
+
+.nav-link {
+  color: rgba(255, 255, 255, 0.8) !important;
+  margin: 0 10px;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.nav-link:hover {
+  color: #00E5FF !important;
+}
+
+.nav-link.active {
+  color: #00E5FF !important;
+  background: rgba(0, 229, 255, 0.1);
+}
+
+.login-btn {
+  padding: 8px 28px;
+  background-color: #00E5FF;
+  border: 2px solid #00E5FF;
+  color: #1a1a1a !important;
+  border-radius: 50px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+}
+
+.login-btn:hover {
+  background-color: transparent;
+  color: #00E5FF !important;
+}
+
+.navbar-toggler {
+  padding: 4px 8px;
+}
+
+.navbar-toggler-icon {
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.8%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+}
+
+/* Navbar styles */
+.main-navbar {
+  background-color: #1E1E1E;
+  padding: 12px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  gap: 12px;
+}
+
+.brand-name {
+  font-size: 22px;
+  font-weight: 600;
+  color: white;
+  letter-spacing: 0.5px;
+}
+
+.brand-highlight {
+  color: #00E5FF;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 20px;
+  justify-content: center;
+  flex: 1;
+}
+
+.nav-item {
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  text-decoration: none;
+  padding: 6px 16px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.nav-item:hover {
+  color: #00E5FF;
+  background-color: rgba(0, 229, 255, 0.1);
+}
+
+.nav-item.active {
+  color: #00E5FF;
+  background-color: rgba(0, 229, 255, 0.15);
+}
+
+.login-button {
+  background-color: #00E5FF;
+  color: #1E1E1E;
+  padding: 8px 24px;
+  border-radius: 4px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.login-button:hover {
+  background-color: #00c2d8;
+  transform: translateY(-1px);
+}
+
+.navbar-collapse {
+  display: flex;
+  align-items: center;
+}
+
+@media (max-width: 991px) {
+  .nav-links {
+    margin: 20px 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .login-button {
+    margin: 10px auto;
+    display: inline-block;
+  }
+}
