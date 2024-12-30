@@ -71,7 +71,7 @@ const Footer = () => {
                   DDB
                 </span>
                 <p className="mt-4 text-sm leading-6 text-gray-300">
-                  Making Dialogflow development easier and more efficient.
+                  Making Dialogflow development easier and more efficient
                 </p>
               </div>
               <div className="absolute -inset-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-lg blur-xl opacity-0 group-hover:opacity-100 transition-all duration-700"></div>
