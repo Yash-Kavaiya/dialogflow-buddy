@@ -8,6 +8,13 @@ const nextConfig = {
   images: {
     domains: [],
   },
+  experimental: {
+    esmExternals: true
+  },
+  // Add configuration to handle browser-only code
+  compiler: {
+    styledComponents: true
+  }
 }
 
 module.exports = nextConfig
