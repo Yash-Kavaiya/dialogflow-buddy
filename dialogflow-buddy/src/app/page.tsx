@@ -1,4 +1,5 @@
 "use client";
+
 import { FC } from 'react';
 import { FaRobot, FaRoute, FaCode, FaCogs, FaProjectDiagram, FaBug, FaChartLine, FaVial, FaInfoCircle } from 'react-icons/fa';
 import Hero from '@/components/Hero';
