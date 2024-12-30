@@ -6,18 +6,7 @@ import Hero from '@/components/Hero';
 import FeatureCard from '@/components/FeatureCard';
 import Footer from '@/components/Footer';
 import { useRouter } from 'next/navigation';
-// Dynamically import components that might use document
-const Hero = dynamic(() => import('@/components/Hero'), {
-  ssr: false
-});
 
-const FeatureCard = dynamic(() => import('@/components/FeatureCard'), {
-  ssr: false
-});
-
-const Footer = dynamic(() => import('@/components/Footer'), {
-  ssr: false
-});
 interface Feature {
   icon: JSX.Element;
   title: string;
